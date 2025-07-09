@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
-import profilePic from '../assets/1000081995.png';
+import profilePic from '../assets/profile1.jpg';
 import resumePDF from '../assets/APPLYING JOB RESUME.pdf';
 
 export default function Home({ id }) {
@@ -10,7 +10,7 @@ export default function Home({ id }) {
       <motion.img
         src={profilePic}
         alt="Jericho Canlas"
-        className="w-64 h-64 object-cover border-4 border-black shadow-lg mb-6"
+        className="w-72 h-58 object-cover border-4 border-black shadow-lg mb-6"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}

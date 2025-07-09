@@ -46,7 +46,7 @@ export default function About({ id }) {
           />
           <p className="text-gray-700 mb-4 leading-relaxed">
             I'm a Computer Science graduate passionate about learning web development.
-            With experience in frontend and backend tools like HTML, CSS, JavaScript, Laravel, React, and Flask.
+            With basic experience in frontend and backend tools like HTML, CSS, JavaScript, Laravel, React, and Flask.
           </p>
           <p className="text-gray-700">
             I thrive in team environments, love solving real-world problems with code,

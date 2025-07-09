@@ -45,7 +45,7 @@ export default function About({ id }) {
             className="w-full max-w-xs mx-auto rounded shadow mb-6"
           />
           <p className="text-gray-700 mb-4 leading-relaxed">
-            I'm a Computer Science graduate passionate about learning web development.
+            I'm a Computer Science fresh graduate passionate about learning web development.
             With basic experience in frontend and backend tools like HTML, CSS, JavaScript, Laravel, React, and Flask.
           </p>
           <p className="text-gray-700">

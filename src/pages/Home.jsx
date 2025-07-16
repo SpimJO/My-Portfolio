@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
 import profilePic from '../assets/profile1.jpg';
-import resumePDF from '../assets/APPLYING JOB RESUME.pdf';
+import resumePDF from '../assets/Canlas-Resume.pdf';
 
 export default function Home({ id }) {
   return (

@@ -68,20 +68,20 @@ export default function Projects({ id }) {
         {projects.map((project, idx) => (
           <motion.div
             key={idx}
-            className="p-6 rounded-lg bg-white shadow hover:shadow-lg border transition"
+            className="p-6 rounded-lg bg-white dark:bg-gray-800 text-black dark:text-white shadow hover:shadow-lg border transition"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1, duration: 0.6 }}
             viewport={{ once: true }}
           >
             <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-            <p className="text-gray-600 text-sm mb-3">{project.description}</p>
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">{project.description}</p>
             <div className="flex flex-wrap gap-2 mb-3">
               {project.tags?.map((tag, i) => (
                 <span
                   key={i}
-                  className="bg-gray-200 text-xs text-gray-700 px-2 py-1 rounded"
-                >
+                  className="bg-gray-200 dark:bg-gray-700 text-xs text-gray-700 dark:text-gray-200 px-2 py-1 rounded"
+              >
                   {tag}
                 </span>
               ))}
@@ -91,12 +91,12 @@ export default function Projects({ id }) {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-600 hover:underline text-sm font-medium"
+                className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium"
               >
                 View on GitHub →
               </a>
             )}
-          </motion.div>
+      </motion.div>
         ))}
       </div>
     </section>

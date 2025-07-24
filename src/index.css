@@ -4,7 +4,7 @@
 
 /* You can keep custom styles below */
 body {
-  @apply font-sans bg-white text-black;
+  @apply font-sans bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

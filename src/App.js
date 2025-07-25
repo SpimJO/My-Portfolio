@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Experience from "./pages/Experience";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <main>
           <Home id="home" />
           <About id="about" />
+          <Experience id="experience" />
           <Projects id="projects" />
           <Contact id="contact" />
         </main>

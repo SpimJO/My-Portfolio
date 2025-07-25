@@ -31,8 +31,6 @@ A modern, responsive portfolio website built with **React.js** and **Tailwind CS
 
 ## 🔗 Contact
 
-- 📧 **Email:** jerichocanlas65@gmail.com  
-- 📞 **Phone:** 09267733629  
 - 🌐 **Facebook:** [facebook.com/jecho.canlas15](https://www.facebook.com/jecho.canlas15)  
 - 💻 **GitHub:** [github.com/SpimJO](https://github.com/SpimJO)
 

@@ -45,7 +45,10 @@ export default function Experience({ id }) {
             viewport={{ once: true }}
           >
             {/* Timeline Dot */}
-            <div className="absolute w-3 h-3 bg-blue-600 rounded-full -left-[31px] top-2 border-2 border-gray-300 dark:border-gray-600"></div>
+            <div className="absolute -left-[31px] top-2">
+                <span className="absolute inline-flex w-3 h-3 bg-blue-600 rounded-full animate-ping opacity-80"></span>
+                <span className="relative inline-flex w-3 h-3 bg-blue-600 rounded-full border-2 border-gray-300 dark:border-gray-600"></span>
+            </div>
 
             {/* Card */}
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition">

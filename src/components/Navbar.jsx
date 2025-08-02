@@ -1,45 +1,79 @@
-import React, { useState } from "react";
-import DarkModeToggle from './DarkModeToggle';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+
+const navLinks = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
 export default function Navbar() {
+  const [active, setActive] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      navLinks.forEach(link => {
+        const section = document.getElementById(link.id);
+        if (section) {
+          const top = section.offsetTop - 100;
+          const height = section.offsetHeight;
+          if (scrollY >= top && scrollY < top + height) {
+            setActive(link.id);
+          }
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300">
+    <header className="fixed top-0 left-0 w-full bg-dark/80 backdrop-blur z-50">
       <nav className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
-        <h1 className="text-xl font-bold text-black dark:text-white">Jericho Canlas</h1>
+        {/* Minimal Logo */}
+        <h1 className="text-xl font-bold text-primary tracking-wide">Portfolio</h1>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 text-sm font-medium">
-          <li><a href="#home" className="hover:text-blue-600 dark:hover:text-blue-400 text-black dark:text-white transition">Home</a></li>
-          <li><a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 text-black dark:text-white transition">About</a></li>
-          <li><a href="#experience" className="hover:text-blue-600 dark:hover:text-blue-400 text-black dark:text-white transition">Work History</a></li>
-          <li><a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 text-black dark:text-white transition">Projects</a></li>
-          <li><a href="#contact" className="hover:text-blue-600 dark:hover:text-blue-400 text-black dark:text-white transition">Contact</a></li>
+        {/* Desktop Links */}
+        <ul className="hidden md:flex gap-8">
+          {navLinks.map(link => (
+            <li key={link.id}>
+              <a
+                href={`#${link.id}`}
+                className={`transition-colors ${
+                  active === link.id ? "text-primary" : "text-light hover:text-primary"
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
 
-        {/* Dark mode toggle + mobile icon */}
-        <div className="flex items-center gap-4">
-          <DarkModeToggle />
-          <button onClick={toggleMenu} className="md:hidden text-black dark:text-white">
-            {isOpen ? <X /> : <Menu />}
-          </button>
-        </div>
+        {/* Mobile Menu */}
+        <button
+          className="md:hidden text-light text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          ☰
+        </button>
+
+        {isOpen && (
+          <div className="absolute top-16 left-0 w-full bg-dark flex flex-col items-center gap-6 py-6 md:hidden">
+            {navLinks.map(link => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className="text-light hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden px-6 pb-4 space-y-2 bg-white dark:bg-gray-800">
-          <li><a href="#home" onClick={toggleMenu} className="block text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
-          <li><a href="#about" onClick={toggleMenu} className="block text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
-          <li><a href="#experience" onClick={toggleMenu} className="block text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Work History</a></li>
-          <li><a href="#projects" onClick={toggleMenu} className="block text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Projects</a></li>
-          <li><a href="#contact" onClick={toggleMenu} className="block text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
-        </ul>
-      )}
     </header>
   );
 }
